@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         Osland: ["Oswald", "sans-serif"],
+        Inter: ["Inter", "sans-serif"],
       },
     },
     colors: {
