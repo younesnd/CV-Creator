@@ -33,7 +33,7 @@ const WorkExperience = (props: WorkExpType) => {
         <input
           type="text"
           id="last_name"
-          className="bg-zinc-900 text-white  text-sm rounded-lg h-8   p-2"
+          className="bg-zinc-900 text-white  text-sm rounded-lg h-8 p-2"
           placeholder="Your Position"
           required
         />
