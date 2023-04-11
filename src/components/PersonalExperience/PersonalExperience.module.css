@@ -1,0 +1,3 @@
+.button {
+    @apply bg-zinc-900 relative bottom-[300px] left-[420px] text-white text-xs h-9 w-9 rounded-lg p-2;
+}
