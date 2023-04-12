@@ -1,6 +1,23 @@
+import { useRef } from "react";
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
 const PreviewCv = () => {
+  const printRef = useRef<HTMLDivElement>(null);
+  const handleDownloadPdf = async () => {
+    const element = printRef.current;
+    const canvas = await html2canvas(element as HTMLElement, { scale: 4 });
+    const data = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF("p", "mm", "a4", true);
+    const imgProperties = pdf.getImageProperties(data);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+
+    pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
+    pdf.save("print.pdf");
+  };
   return (
-    <div className="relative bg-white h-3/4 w-[85%] rounded-lg">
+    <div ref={printRef} className="relative bg-white h-3/4 w-[85%] rounded-lg">
       <div className="grid grid-rows-[auto,0.80fr]">
         <div className="grid grid-rows-[0.8fr,auto]">
           <span className="p-5 font-Osland text-xl ">Nidhal ben Younes</span>
@@ -17,7 +34,7 @@ const PreviewCv = () => {
                   Contact
                 </h3>
                 <div className="flex flex-col gap-[12px]">
-                  <div className="flex items-center space-x-1">
+                  <div className="inline-flex items-start space-x-1">
                     <img
                       src={require("../../assets/earth.png")}
                       className="h-3 w-3 "
@@ -151,9 +168,12 @@ const PreviewCv = () => {
               <h4 className="text-left font-Work text-[12px] font-semibold tracking-[1.5px] ml-5">
                 Senior Software Enginner
               </h4>
-              <h5 className=" text-left text-[11px] font-Work font-normal text-[#2e2e2e] ml-5">
+              <button
+                className=" text-left text-[11px] font-Work font-normal text-[#2e2e2e] ml-5"
+                onClick={handleDownloadPdf}
+              >
                 Dice | 2016 - Present
-              </h5>
+              </button>
               <p className="text-[11px] font-Work font-normal text-[#2e2e2e] text-left ml-5 tracking-normal">
                 {" "}
                 provided technical leadership for complex projects. I used the

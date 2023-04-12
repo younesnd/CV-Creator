@@ -1,4 +1,7 @@
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
 const CreateCv = () => {
+  
   return (
     
     <div className="container flex h-32 bg-[#262626] font-semibold w-[90%]  text-white rounded-lg justify-between">
