@@ -3,7 +3,7 @@ const PreviewCv = () => {
     <div className="relative bg-white h-3/4 w-[85%] rounded-lg">
       <div className="grid grid-rows-[auto,0.80fr]">
         <div className="grid grid-rows-[0.8fr,auto]">
-          <span className="p-5 font-Osland text-xl">Name ben zebi</span>
+          <span className="p-5 font-Osland text-xl ">Nidhal ben Younes</span>
           <div className="bg-zinc-200 h-10 p-2 font-extralight">
             {" "}
             Senior Software developer
@@ -64,11 +64,11 @@ const PreviewCv = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-white font-Work text-[13px] font-normal tracking-[3.5px]">
+                <h3 className="text-white font-Work text-[13px] font-normal tracking-[3.5px] mb-[20px]">
                   EDUCATION
                 </h3>
                 <div className="mb-[22px]">
-                  <h4 className="font-Work text-[12px] font-medium leading-[18px] mb-2 ">
+                  <h4 className="font-Work text-[12px] font-medium leading-[18px] mb-[2px] ">
                     Master Of Science
                   </h4>
                   <h5 className="font-Work text-[11px] font-normal leading-[16.5px] text-[#a6a6a6]">
@@ -79,7 +79,7 @@ const PreviewCv = () => {
                   </p>
                 </div>
                 <div className="">
-                  <h4 className="font-Work text-[12px] font-medium leading-[18px] mb-2 ">
+                  <h4 className="font-Work text-[12px] font-medium leading-[18px] mb-[2px] ">
                     Master Of Science
                   </h4>
                   <h5 className="font-Work text-[11px] font-normal leading-[16.5px] text-[#a6a6a6]">
@@ -88,6 +88,18 @@ const PreviewCv = () => {
                   <p className="font-Work text-[10px] font-normal leading-[15px] text-[#a6a6a6] ">
                     2010 - 2014
                   </p>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-white font-Work text-[13px] font-normal tracking-[3.5px] mb-[20px]">
+                  SKILLS
+                </h3>
+                <div className="flex ">
+                  <img
+                    src={require("../../assets/flech.png")}
+                    className="h-3 w-3 "
+                    alt="trash"
+                  />
                 </div>
               </div>
             </div>
@@ -111,28 +123,48 @@ const PreviewCv = () => {
               time with friends. I also play chess and appreciate any
               competitive environment when pursuing sports.
             </p>
-            <h3
-              className=" block self-start text-left p-4 text-[13px] tracking-[4px] font-normal h-[2px] after:content-['']
+            <div className="mb-2">
+              <h3
+                className=" block self-start text-left p-4 text-[13px]  tracking-[4px] font-normal h-[2px] after:content-['']
             mb-5 after:bg-gray-500 after:rounded-t-[1px] after:rounded-b-[1px] after:block after:w-[50px] after:h-[2px] after:mt-[10px]"
-            >
-              WORK EXPERIENCE
-            </h3>
-            <h4 className="text-left font-Work text-[12px] font-semibold tracking-[1.5px] ml-5">
-              Senior Software Enginner
-            </h4>
-            <h5 className=" text-left text-[11px] font-Work font-normal text-[#2e2e2e] ml-5">
-              Dice | 2016 - Present
-            </h5>
-            <p className="text-[11px] font-Work font-normal text-[#2e2e2e] text-left ml-5 tracking-normal">
-              {" "}
-              provided technical leadership for complex projects. I used the
-              latest technologies such as Cloud Service, Visual Studio 2019 and
-              Azure DevOps. I gained experience with data technologies such as
-              SQL Servers, NoSQL databases, full text search engines and
-              caching. My daily work consisted mostly of maintaining full
-              project life-cycle tasks including testing, debugging, technical
-              analysis, design and coding.
-            </p>
+              >
+                WORK EXPERIENCE
+              </h3>
+              <h4 className="text-left font-Work text-[12px] font-semibold tracking-[1.5px] ml-5">
+                Senior Software Enginner
+              </h4>
+              <h5 className=" text-left text-[11px] font-Work font-normal text-[#2e2e2e] ml-5">
+                Dice | 2016 - Present
+              </h5>
+              <p className="text-[11px] font-Work font-normal text-[#2e2e2e] text-left ml-5 tracking-normal">
+                {" "}
+                provided technical leadership for complex projects. I used the
+                latest technologies such as Cloud Service, Visual Studio 2019
+                and Azure DevOps. I gained experience with data technologies
+                such as SQL Servers, NoSQL databases, full text search engines
+                and caching. My daily work consisted mostly of maintaining full
+                project life-cycle tasks including testing, debugging, technical
+                analysis, design and coding.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-left font-Work text-[12px] font-semibold tracking-[1.5px] ml-5">
+                Senior Software Enginner
+              </h4>
+              <h5 className=" text-left text-[11px] font-Work font-normal text-[#2e2e2e] ml-5">
+                Dice | 2016 - Present
+              </h5>
+              <p className="text-[11px] font-Work font-normal text-[#2e2e2e] text-left ml-5 tracking-normal">
+                {" "}
+                provided technical leadership for complex projects. I used the
+                latest technologies such as Cloud Service, Visual Studio 2019
+                and Azure DevOps. I gained experience with data technologies
+                such as SQL Servers, NoSQL databases, full text search engines
+                and caching. My daily work consisted mostly of maintaining full
+                project life-cycle tasks including testing, debugging, technical
+                analysis, design and coding.
+              </p>
+            </div>
           </div>
         </div>
       </div>
