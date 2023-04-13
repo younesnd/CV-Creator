@@ -5,7 +5,7 @@ const PreviewCv = () => {
   const printRef = useRef<HTMLDivElement>(null);
   const handleDownloadPdf = async () => {
     const element = printRef.current;
-    const canvas = await html2canvas(element as HTMLElement, { scale: 4 });
+    const canvas = await html2canvas(element as HTMLElement, { scale: 5 });
     const data = canvas.toDataURL("image/png");
 
     const pdf = new jsPDF("p", "mm", "a4", true);
