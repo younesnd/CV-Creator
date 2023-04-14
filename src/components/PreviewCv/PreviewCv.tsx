@@ -17,7 +17,7 @@ const PreviewCv = () => {
     pdf.save("print.pdf");
   };
   return (
-    <div ref={printRef} className="relative bg-white h-3/4 w-[85%] rounded-lg">
+    <div ref={printRef} className=" bg-white h-2/3 w-[85%] rounded-lg">
       <div className="grid grid-rows-[auto,0.80fr]">
         <div className="grid grid-rows-[0.8fr,auto]">
           <span className="p-5 font-Osland text-xl ">Nidhal ben Younes</span>
@@ -26,8 +26,8 @@ const PreviewCv = () => {
             Senior Software developer
           </div>
         </div>
-        <div className="grid grid-cols-[0.30fr,0.7fr] min-h-screen">
-          <div className="bg-[#262626] text-white">
+        <div className="grid grid-cols-[0.30fr,0.7fr] ">
+          <div className="bg-[#262626] text-white h-full ">
             <div className="py-[35px] px-[28px]  text-left flex flex-col gap-y-[30px]">
               <div>
                 <h3 className="text-white font-Work text-[13px] font-normal tracking-[4px] mb-[20px]">

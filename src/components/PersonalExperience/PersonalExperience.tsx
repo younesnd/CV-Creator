@@ -5,12 +5,13 @@ import WorkExperience from "../WorkExperience/WorkExperience";
 import Skills from "../SkillsTechnologies/Skills";
 const PersonalExperience = () => {
   const [expNum, setExpNum] = useState(1);
-  const handleAdd = (e: React.MouseEvent<HTMLButtonElement>) => {
+
+  const handleAdd = () => {
     if (expNum < 3) {
       setExpNum(expNum + 1);
     }
   };
-  const handleRemove = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleRemove = () => {
     if (expNum > 1) {
       setExpNum(expNum - 1);
     }
@@ -24,48 +25,13 @@ const PersonalExperience = () => {
       {Array.from(Array(expNum)).map((c, index) => {
         return (
           <div className="flex flex-col ">
-            <WorkExperience expNumber={index + 1} />
-            <button
-              className={clsx({
-                [styles.button]: expNum > 1,
-                hidden: expNum === 1,
-              })}
-              onClick={handleRemove}
-            >
-              <img
-                src={require("../../assets/trash.png")}
-                className="h-5 w-5"
-                alt="trash"
-              />
-            </button>
+            <WorkExperience />
           </div>
         );
       })}
-      <div className="self-start px-6 mb-2">
-        <button
-          className=" bg-zinc-700 rounded-lg text-sm h-8 w-24 font-Osland text-zinc-400 mt-2 "
-          onClick={handleAdd}
-        >
-          {" "}
-          +New{" "}
-        </button>
-      </div>
-      {Array.from(Array(expNum)).map((c, index) => {
-        return (
-          <div className="flex flex-col ">
-            <Skills />
-          </div>
-        );
-      })}
-      <div className="self-start px-6 mb-2">
-        <button
-          className=" bg-zinc-700 rounded-lg text-sm h-8 w-24 font-Osland text-zinc-400 "
-          onClick={handleAdd}
-        >
-          {" "}
-          +New{" "}
-        </button>
-      </div>
+      
+
+      <Skills />
     </div>
   );
 };

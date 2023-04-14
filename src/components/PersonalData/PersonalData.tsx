@@ -10,6 +10,7 @@ const PersonalData = () => {
             className="bg-zinc-900  text-white text-sm rounded-lg h-8  p-2.5 w-full "
             placeholder="First Name"
             required
+            
           />
 
           <input
