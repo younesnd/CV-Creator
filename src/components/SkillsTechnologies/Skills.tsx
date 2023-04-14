@@ -16,7 +16,9 @@ const Skills = () => {
           </div>
         </div>
       </div>
+      <div>
       <div className="flex px-5 space-y-2 place-items-center items-center  justify-between mb-2">
+        
         <input
           type="text"
           id="first_name"
@@ -33,6 +35,45 @@ const Skills = () => {
                 alt="trash"
               />
             </button>
+      </div>
+      <div className="flex px-5 space-y-2 place-items-center items-center  justify-between mb-2">
+        
+        <input
+          type="text"
+          id="first_name"
+          className="bg-zinc-900  text-white text-sm rounded-lg h-10 w-[88%] p-4 mt-1.5 "
+          placeholder="Company"
+          required
+        />
+        <button
+              className=" bg-zinc-900 relative items-center text-white text-xs h-10 w-10 rounded-lg p-2.5 "
+            >
+              <img
+                src={require("../../assets/trash.png")}
+                className="h-5 w-5"
+                alt="trash"
+              />
+            </button>
+      </div>
+      <div className="flex px-5 space-y-2 place-items-center items-center  justify-between mb-2">
+        
+        <input
+          type="text"
+          id="first_name"
+          className="bg-zinc-900  text-white text-sm rounded-lg h-10 w-[88%] p-4 mt-1.5 "
+          placeholder="Company"
+          required
+        />
+        <button
+              className=" bg-zinc-900 relative items-center text-white text-xs h-10 w-10 rounded-lg p-2.5 "
+            >
+              <img
+                src={require("../../assets/trash.png")}
+                className="h-5 w-5"
+                alt="trash"
+              />
+            </button>
+      </div>
       </div>
     </>
   );
