@@ -5,7 +5,7 @@ const PreviewCv = () => {
   const printRef = useRef<HTMLDivElement>(null);
   const handleDownloadPdf = async () => {
     const element = printRef.current;
-    const canvas = await html2canvas(element as HTMLElement, { scale: 5 });
+    const canvas = await html2canvas(element as HTMLElement, { scale: 4 });
     const data = canvas.toDataURL("image/png");
 
     const pdf = new jsPDF("p", "mm", "a4", true);
@@ -17,12 +17,12 @@ const PreviewCv = () => {
     pdf.save("print.pdf");
   };
   return (
-    <div ref={printRef} className=" bg-white h-2/3 w-[85%] rounded-lg">
-      <div className="grid grid-rows-[auto,0.80fr]">
+    <div ref={printRef} className=" bg-white h-[800px] left-[614px] w-[615px] rounded-lg flex flex-col">
+      <div className="grid grid-rows-[auto,0.75fr]">
         <div className="grid grid-rows-[0.8fr,auto]">
-          <span className="p-5 font-Osland text-xl ">Nidhal ben Younes</span>
-          <div className="bg-zinc-200 h-10 p-2 font-extralight">
-            {" "}
+          <h1 className="mb-2 p-8 tracking-[8px] text-center font-medium text-4xl uppercase">Nikola</h1>
+          <div className="bg-zinc-200 h-10  font-extralight">
+            
             Senior Software developer
           </div>
         </div>
@@ -34,48 +34,44 @@ const PreviewCv = () => {
                   Contact
                 </h3>
                 <div className="flex flex-col gap-[12px]">
-                  <div className="inline-flex items-start space-x-1">
+                  <div className="flex items-center space-x-1.5">
                     <img
                       src={require("../../assets/earth.png")}
-                      className="h-3 w-3 "
+                      className="h-3 w-3 self-center mt-3"
                       alt="trash"
                     />
                     <span className="font-Inter text-[9px] text-white">
-                      {" "}
                       nicolas@tesla.com
                     </span>
                   </div>
-                  <div className="flex items-center space-x-1">
+                  <div className="flex items-center space-x-1.5">
                     <img
                       src={require("../../assets/env.png")}
-                      className="h-3 w-3 "
+                      className="h-3 w-3 mt-3"
                       alt="trash"
                     />{" "}
                     <span className="font-Inter text-[9px] text-white">
-                      {" "}
-                      nicolas@tesla.com
+                       nicolas@tesla.com
                     </span>
                   </div>
-                  <div className="flex items-center space-x-1">
+                  <div className="flex items-center space-x-1.5">
                     <img
                       src={require("../../assets/address.png")}
-                      className="h-3 w-3 "
+                      className="h-3 w-3 mt-3 "
                       alt="trash"
                     />
                     <span className="font-Inter text-[9px] text-white">
-                      {" "}
                       nicolas@tesla.com
                     </span>
                   </div>
-                  <div className="flex items-center space-x-1">
+                  <div className="flex items-center space-x-1.5">
                     <img
                       src={require("../../assets/telep.png")}
-                      className="h-3 w-3 "
+                      className="h-3 w-3 mt-3"
                       alt="trash"
                     />
                     <span className="font-Inter text-[9px] text-white">
-                      {" "}
-                      nicolas@tesla.com
+                        nicolas@tesla.com
                     </span>
                   </div>
                 </div>
