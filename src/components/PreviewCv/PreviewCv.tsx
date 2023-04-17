@@ -1,7 +1,17 @@
 import { useRef } from "react";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
-const PreviewCv = () => {
+
+export type PersonalDataType = {
+  firstName: string;
+  lastName?: string;
+  address: string;
+  website: string;
+  email: string;
+  number: string;
+  desc: string;
+};
+const PreviewCv = (Info: PersonalDataType) => {
   const printRef = useRef<HTMLDivElement>(null);
   const handleDownloadPdf = async () => {
     const element = printRef.current;
@@ -17,12 +27,16 @@ const PreviewCv = () => {
     pdf.save("print.pdf");
   };
   return (
-    <div ref={printRef} className=" bg-white h-[800px] left-[614px] w-[615px] rounded-lg flex flex-col">
+    <div
+      ref={printRef}
+      className=" bg-white h-[800px] left-[614px] w-[615px] rounded-lg flex flex-col"
+    >
       <div className="grid grid-rows-[auto,0.75fr]">
         <div className="grid grid-rows-[0.8fr,auto]">
-          <h1 className="mb-2 p-8 tracking-[8px] text-center font-medium text-4xl uppercase">Nikola</h1>
+          <h1 className="mb-2 p-8 tracking-[8px] text-center font-medium text-4xl uppercase">
+            {Info.firstName}
+          </h1>
           <div className="bg-zinc-200 h-10  font-extralight">
-            
             Senior Software developer
           </div>
         </div>
@@ -40,8 +54,8 @@ const PreviewCv = () => {
                       className="h-3 w-3 self-center mt-3"
                       alt="trash"
                     />
-                    <span className="font-Inter text-[9px] text-white">
-                      nicolas@tesla.com
+                    <span id="Website" className="font-Inter text-[9px] text-white">
+                      {Info.website}
                     </span>
                   </div>
                   <div className="flex items-center space-x-1.5">
@@ -50,8 +64,8 @@ const PreviewCv = () => {
                       className="h-3 w-3 mt-3"
                       alt="trash"
                     />{" "}
-                    <span className="font-Inter text-[9px] text-white">
-                       nicolas@tesla.com
+                    <span id="Email" className="font-Inter text-[9px] text-white">
+                      {Info.email}
                     </span>
                   </div>
                   <div className="flex items-center space-x-1.5">
@@ -60,8 +74,8 @@ const PreviewCv = () => {
                       className="h-3 w-3 mt-3 "
                       alt="trash"
                     />
-                    <span className="font-Inter text-[9px] text-white">
-                      nicolas@tesla.com
+                    <span id="Address" className="font-Inter text-[9px] text-white">
+                      {Info.address}
                     </span>
                   </div>
                   <div className="flex items-center space-x-1.5">
@@ -70,8 +84,8 @@ const PreviewCv = () => {
                       className="h-3 w-3 mt-3"
                       alt="trash"
                     />
-                    <span className="font-Inter text-[9px] text-white">
-                        nicolas@tesla.com
+                    <span id="Number" className="font-Inter text-[9px] text-white">
+                      {Info.number}
                     </span>
                   </div>
                 </div>
@@ -126,15 +140,7 @@ const PreviewCv = () => {
               PROFILE
             </h3>
             <p className="font-Work text-[11px] p-2 tracking-normal leading-[16.5px] text-left ml-2 text-[#2e2e2e]">
-              Motivated and results-driven Senior Software Engineer with 8+
-              years of experience in my field. I have continuously demonstrated
-              experience in improving software performance by implementing new
-              ideas, updating, testing and coding. Experience in development
-              tools which increase accuracy and performance of software,
-              especially in React and with React Redux, are my specialization.
-              In my free time, I go on a walk with the two of my dogs or spend
-              time with friends. I also play chess and appreciate any
-              competitive environment when pursuing sports.
+             {Info.desc}
             </p>
             <div className="mb-2">
               <h3
@@ -171,7 +177,7 @@ const PreviewCv = () => {
                 Dice | 2016 - Present
               </button>
               <p className="text-[11px] font-Work font-normal text-[#2e2e2e] text-left ml-5 tracking-normal">
-                {" "}
+                
                 provided technical leadership for complex projects. I used the
                 latest technologies such as Cloud Service, Visual Studio 2019
                 and Azure DevOps. I gained experience with data technologies
