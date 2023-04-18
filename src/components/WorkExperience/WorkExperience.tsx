@@ -59,7 +59,7 @@ const WorkExperience = (props: WorkExperienceProps) => {
             <div className="flex flex-col px-5 space-y-2">
               <input
                 type="text"
-                name= 'company'
+                name="company"
                 className="bg-zinc-900  text-white text-sm rounded-lg h-8 w-full p-2.5 "
                 placeholder="Company"
                 value={company}
