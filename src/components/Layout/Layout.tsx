@@ -5,8 +5,12 @@ import PersonalData from "../PersonalData/PersonalData";
 import PreviewCv from "../PreviewCv/PreviewCv";
 import EducationalData from "../EducationalData/EducationalData";
 import PersonalExperience from "../PersonalExperience/PersonalExperience";
-import { WorkExperienceProps } from "@/types/types";
-import { PersonalDataType } from "@/types/types";
+import {
+  WorkExperienceProps,
+  PersonalDataType,
+  PreviewEducationalProps,
+} from "@/types/types";
+
 const Layout = () => {
   const [formPersonalData, setFormPersonalData] = useState<PersonalDataType>({
     firstName: "",
@@ -31,6 +35,15 @@ const Layout = () => {
     startDate_2: "",
     endDate_2: "",
   });
+  const [formEducationalData, setFormEducationalData] =
+    useState<Omit<PreviewEducationalProps,'onInputchange'>>({
+      university: "",
+      degree: "",
+      timeframe: "",
+      school: "",
+      schoolDegree: "",
+      schoolTimeframe: "",
+    });
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormPersonalData((state) => ({
       ...state,
@@ -41,6 +54,12 @@ const Layout = () => {
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     setFormPersonalExperience((state) => ({
+      ...state,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  const onInputChangeEducation = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormEducationalData((state) => ({
       ...state,
       [e.target.name]: e.target.value,
     }));
@@ -58,7 +77,15 @@ const Layout = () => {
           number={formPersonalData.number}
           desc={formPersonalData.desc}
         />
-        <EducationalData />
+        <EducationalData
+          onInputchange={onInputChangeEducation}
+          university={formEducationalData.university}
+          degree={formEducationalData.degree}
+          timeframe={formEducationalData.timeframe}
+          school={formEducationalData.school}
+          schoolDegree={formEducationalData.schoolDegree}
+          schoolTimeframe={formEducationalData.schoolTimeframe}
+        />
         <PersonalExperience
           onInputchange={onInputChangeWorkExperience}
           company={formPersonalExperience.company}
@@ -90,7 +117,12 @@ const Layout = () => {
         company_2={formPersonalExperience.company_2}
         startDate_2={formPersonalExperience.startDate_2}
         endDate_2={formPersonalExperience.endDate_2}
-        
+        university={formEducationalData.university}
+        degree={formEducationalData.degree}
+        timeframe={formEducationalData.timeframe}
+        school={formEducationalData.school}
+        schoolDegree={formEducationalData.schoolDegree}
+        schoolTimeframe={formEducationalData.schoolTimeframe}
       />
     </div>
   );

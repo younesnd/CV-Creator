@@ -1,4 +1,5 @@
-const PreviewEducation = () => {
+import { PreviewEducationalProps } from "@/types/types"
+const PreviewEducation = (props:Omit<PreviewEducationalProps,"onInputchange">) => {
     return (
         <div>
                 <h3 className="text-white font-Work text-[13px] font-normal tracking-[3.5px] mb-[20px]">
@@ -6,24 +7,24 @@ const PreviewEducation = () => {
                 </h3>
                 <div className="mb-[22px]">
                   <h4 className="font-Work text-[12px] font-medium leading-[18px] mb-[2px] ">
-                    Master Of Science
+                    {props.degree}
                   </h4>
                   <h5 className="font-Work text-[11px] font-normal leading-[16.5px] text-[#a6a6a6]">
-                    University of Chicago
+                    {props.university}
                   </h5>
                   <p className="font-Work text-[10px] font-normal leading-[15px] text-[#a6a6a6] ">
-                    2010 - 2014
+                    {props.timeframe}
                   </p>
                 </div>
                 <div className="">
                   <h4 className="font-Work text-[12px] font-medium leading-[18px] mb-[2px] ">
-                    Master Of Science
+                    {props.schoolDegree}
                   </h4>
                   <h5 className="font-Work text-[11px] font-normal leading-[16.5px] text-[#a6a6a6]">
-                    University of Chicago
+                    {props.school}
                   </h5>
                   <p className="font-Work text-[10px] font-normal leading-[15px] text-[#a6a6a6] ">
-                    2010 - 2014
+                    {props.schoolTimeframe}
                   </p>
                 </div>
               </div>

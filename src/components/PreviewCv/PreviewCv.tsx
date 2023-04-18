@@ -24,7 +24,14 @@ const PreviewCv = (Info: PreviewCvProps) => {
                 address={Info.address}
                 number={Info.number}
               />
-              <PreviewEducation />
+              <PreviewEducation
+                university={Info.university}
+                degree={Info.degree}
+                timeframe={Info.timeframe}
+                school={Info.school}
+                schoolDegree={Info.schoolDegree}
+                schoolTimeframe={Info.schoolTimeframe}
+              />
               <PreviewSkills />
             </div>
           </div>
@@ -39,23 +46,34 @@ const PreviewCv = (Info: PreviewCvProps) => {
             <p className="font-Work text-[11px] p-2 tracking-normal leading-[16.5px] text-left ml-2 text-[#2e2e2e]">
               {Info.desc}
             </p>
-            <div className="mb-2">
+            <div id="workExperience" className="mb-2">
               <h3
                 className=" block self-start text-left p-4 text-[13px]  tracking-[4px] font-normal h-[2px] after:content-['']
             mb-5 after:bg-gray-500 after:rounded-t-[1px] after:rounded-b-[1px] after:block after:w-[50px] after:h-[2px] after:mt-[10px]"
               >
                 WORK EXPERIENCE
               </h3>
-              <h4 className="text-left font-Work text-[12px] font-semibold tracking-[1.5px] ml-5">
-                {Info.position}
-              </h4>
-              <h5 className=" text-left text-[11px] font-Work font-normal text-[#2e2e2e] ml-5">
-                <span>{Info.company}</span> | <span>{Info.startDate}</span> -{" "}
-                <span>{Info.endDate}</span>
-              </h5>
-              <p className="text-[11px] font-Work font-normal text-[#2e2e2e] text-left ml-5 tracking-normal">
-                {Info.occupation}
-              </p>
+              <div
+                className={clsx("mb-2", {
+                  hidden:
+                    Info.company.length === 0 &&
+                    Info.position.length === 0 &&
+                    Info.occupation.length === 0 &&
+                    Info.startDate.length === 0 &&
+                    Info.endDate.length === 0,
+                })}
+              >
+                <h4 className="text-left font-Work text-[12px] font-semibold tracking-[1.5px] ml-5">
+                  {Info.position}
+                </h4>
+                <h5 className=" text-left text-[11px] font-Work font-normal text-[#2e2e2e] ml-5">
+                  <span>{Info.company}</span> | <span>{Info.startDate}</span> -{" "}
+                  <span>{Info.endDate}</span>
+                </h5>
+                <p className="text-[11px] font-Work font-normal text-[#2e2e2e] text-left ml-5 tracking-normal">
+                  {Info.occupation}
+                </p>
+              </div>
             </div>
             <div
               id="experience_2"
