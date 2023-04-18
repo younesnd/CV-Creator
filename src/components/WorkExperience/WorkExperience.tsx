@@ -1,13 +1,6 @@
 import clsx from "clsx";
 import { useState } from "react";
-export type WorkExperienceProps = {
-  onInputchange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  company: string;
-  position: string;
-  occupation: string;
-  startDate: string;
-  endDate: string;
-};
+import { WorkExperienceProps } from "@/types/types";
 const WorkExperience = (props: WorkExperienceProps) => {
   const { onInputchange, company, position, occupation, startDate, endDate } =
     props;
@@ -125,7 +118,7 @@ const WorkExperience = (props: WorkExperienceProps) => {
         <div className="flex flex-col px-5 space-y-2">
           <input
             type="text"
-            name="company"
+            name="company_2"
             className="bg-zinc-900  text-white text-sm rounded-lg h-8 w-full p-2.5 "
             placeholder="Company"
             value={company}
@@ -134,7 +127,7 @@ const WorkExperience = (props: WorkExperienceProps) => {
 
           <input
             type="text"
-            name="position"
+            name="position_2"
             className="bg-zinc-900 text-white  text-sm rounded-lg h-8 p-2"
             placeholder="Your Position"
             value={position}
@@ -142,7 +135,7 @@ const WorkExperience = (props: WorkExperienceProps) => {
           />
           <input
             type="text"
-            name="occupation"
+            name="occupation_2"
             className="bg-zinc-900  text-white text-sm rounded-lg h-20 p-2.5 placeholder:text-start  "
             placeholder="Your Main Occupation"
             value={occupation}
@@ -150,7 +143,7 @@ const WorkExperience = (props: WorkExperienceProps) => {
           />
           <input
             type="text"
-            name="startDate"
+            name="startDate_2"
             className="bg-zinc-900 text-white  text-sm rounded-lg h-8 p-2"
             placeholder="Start Date"
             value={startDate}
@@ -158,7 +151,7 @@ const WorkExperience = (props: WorkExperienceProps) => {
           />
           <input
             type="text"
-            name="endDate"
+            name="endDate_2"
             className="bg-zinc-900 text-white  text-sm rounded-lg h-8 p-2"
             placeholder="End Date"
             value={endDate}

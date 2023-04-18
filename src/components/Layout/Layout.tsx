@@ -5,10 +5,10 @@ import PersonalData from "../PersonalData/PersonalData";
 import PreviewCv from "../PreviewCv/PreviewCv";
 import EducationalData from "../EducationalData/EducationalData";
 import PersonalExperience from "../PersonalExperience/PersonalExperience";
-import { PersonalDataType } from "../PreviewCv/PreviewCv";
-import { WorkExperienceProps } from "../WorkExperience/WorkExperience";
+import { WorkExperienceProps } from "@/types/types";
+import { PersonalDataType } from "@/types/types";
 const Layout = () => {
-  const [formPersonalData, setFormPersonalData] = useState<Omit<PersonalDataType,'position'|'occupation'|'company'|'startDate'|'endDate'>>({
+  const [formPersonalData, setFormPersonalData] = useState<PersonalDataType>({
     firstName: "",
     lastName: "",
     address: "",
@@ -25,6 +25,11 @@ const Layout = () => {
     occupation: "",
     startDate: "",
     endDate: "",
+    company_2: "",
+    position_2: "",
+    occupation_2: "",
+    startDate_2: "",
+    endDate_2: "",
   });
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormPersonalData((state) => ({
@@ -32,7 +37,9 @@ const Layout = () => {
       [e.target.name]: e.target.value,
     }));
   };
-  const onInputChangeWorkExperience = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onInputChangeWorkExperience = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setFormPersonalExperience((state) => ({
       ...state,
       [e.target.name]: e.target.value,
@@ -59,6 +66,11 @@ const Layout = () => {
           occupation={formPersonalExperience.occupation}
           startDate={formPersonalExperience.startDate}
           endDate={formPersonalExperience.endDate}
+          company_2={formPersonalExperience.company_2}
+          position_2={formPersonalExperience.position_2}
+          occupation_2={formPersonalExperience.occupation_2}
+          startDate_2={formPersonalExperience.startDate_2}
+          endDate_2={formPersonalExperience.endDate_2}
         />
       </div>
       <PreviewCv
@@ -68,11 +80,17 @@ const Layout = () => {
         email={formPersonalData.email}
         number={formPersonalData.number}
         desc={formPersonalData.desc}
-        position = {formPersonalExperience.position}
-        occupation = {formPersonalExperience.occupation}
-        company= {formPersonalExperience.company}
-        startDate = {formPersonalExperience.startDate}
-        endDate= {formPersonalExperience.endDate}
+        position={formPersonalExperience.position}
+        occupation={formPersonalExperience.occupation}
+        company={formPersonalExperience.company}
+        startDate={formPersonalExperience.startDate}
+        endDate={formPersonalExperience.endDate}
+        position_2={formPersonalExperience.position_2}
+        occupation_2={formPersonalExperience.occupation_2}
+        company_2={formPersonalExperience.company_2}
+        startDate_2={formPersonalExperience.startDate_2}
+        endDate_2={formPersonalExperience.endDate_2}
+        
       />
     </div>
   );

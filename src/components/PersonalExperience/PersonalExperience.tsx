@@ -3,8 +3,7 @@ import styles from "./PersonalExperience.module.css";
 import React, { useState } from "react";
 import WorkExperience from "../WorkExperience/WorkExperience";
 import Skills from "../SkillsTechnologies/Skills";
-import { WorkExperienceProps } from "../WorkExperience/WorkExperience";
-
+import { WorkExperienceProps } from "@/types/types";
 const PersonalExperience = (props: WorkExperienceProps) => {
   const [expNum, setExpNum] = useState(1);
 
@@ -34,6 +33,11 @@ const PersonalExperience = (props: WorkExperienceProps) => {
               occupation={props.occupation}
               startDate={props.startDate}
               endDate={props.endDate}
+              company_2={props.company_2}
+              position_2={props.position_2}
+              occupation_2={props.occupation_2}
+              startDate_2={props.startDate_2}
+              endDate_2={props.endDate_2}
             />
           </div>
         );

@@ -5,22 +5,9 @@ import PreviewHeader from "../PreviewHeader/PreviewHeader";
 import PreviewContact from "../PreviewContact/PreviewContact";
 import PreviewEducation from "../PreviewEducation/PreviewEducation";
 import PreviewSkills from "../PreviewSkills/PreviewSkills";
+import { PreviewCvProps } from "@/types/types";
 
-export type PersonalDataType = {
-  firstName: string;
-  lastName?: string;
-  address: string;
-  website: string;
-  email: string;
-  number: string;
-  desc: string;
-  position: string;
-  occupation: string;
-  company: string;
-  startDate: string;
-  endDate: string;
-};
-const PreviewCv = (Info: PersonalDataType) => {
+const PreviewCv = (Info: PreviewCvProps) => {
   const printRef = useRef<HTMLDivElement>(null);
   return (
     <div
@@ -73,14 +60,14 @@ const PreviewCv = (Info: PersonalDataType) => {
             </div>
             <div id="experience_2" className="mb-2">
               <h4 className="text-left font-Work text-[12px] font-semibold tracking-[1.5px] ml-5">
-                {Info.position}
+                {Info.position_2}
               </h4>
               <h5 className=" text-left text-[11px] font-Work font-normal text-[#2e2e2e] ml-5">
-                <span>{Info.company}</span> | <span>{Info.startDate}</span> -{" "}
-                <span>{Info.endDate}</span>
+                <span>{Info.company_2}</span> | <span>{Info.startDate_2}</span> -
+                <span>{Info.endDate_2}</span>
               </h5>
               <p className="text-[11px] font-Work font-normal text-[#2e2e2e] text-left ml-5 tracking-normal">
-                {Info.occupation}
+                {Info.occupation_2}
               </p>
             </div>
             <div></div>
