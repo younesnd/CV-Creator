@@ -1,4 +1,11 @@
-const PreviewContact = () => {
+type PreviewContactProps = {
+  website : string
+  email : string
+  address : string
+  number:string
+}
+const PreviewContact = (props:PreviewContactProps) => {
+  const {website,email,address,number} = props
   return (
     <div>
       <h3 className="text-white font-Work text-[13px] font-normal tracking-[4px] mb-[20px]">
@@ -12,7 +19,7 @@ const PreviewContact = () => {
             alt="trash"
           />
           <span id="Website" className="font-Inter text-[9px] text-white">
-            
+            {website}
           </span>
         </div>
         <div className="flex items-center space-x-1.5">
@@ -22,7 +29,7 @@ const PreviewContact = () => {
             alt="trash"
           />{" "}
           <span id="Email" className="font-Inter text-[9px] text-white">
-            jvjdvndkfvn
+            {email}
           </span>
         </div>
         <div className="flex items-center space-x-1.5">
@@ -32,7 +39,7 @@ const PreviewContact = () => {
             alt="trash"
           />
           <span id="Address" className="font-Inter text-[9px] text-white">
-            
+            {address}
           </span>
         </div>
         <div className="flex items-center space-x-1.5">
@@ -42,7 +49,7 @@ const PreviewContact = () => {
             alt="trash"
           />
           <span id="Number" className="font-Inter text-[9px] text-white">
-            484558852
+            {number}
           </span>
         </div>
       </div>

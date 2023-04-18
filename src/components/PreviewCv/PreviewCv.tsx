@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import PreviewHeader from "../PreviewHeader/PreviewHeader";
@@ -30,6 +30,21 @@ const PreviewCv = (Info: PersonalDataType) => {
     pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
     pdf.save("print.pdf");
   };
+  const [formPersonalData, setFormPersonalData] = useState<PersonalDataType>({
+    firstName: "",
+    lastName: "",
+    address: "",
+    website: "",
+    email: "",
+    number: "",
+    desc: "",
+  });
+  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormPersonalData((state) => ({
+      ...state,
+      [e.target.name]: e.target.value,
+    }));
+  };
   return (
     <div
       ref={printRef}
@@ -40,9 +55,14 @@ const PreviewCv = (Info: PersonalDataType) => {
         <div className="grid grid-cols-[0.30fr,0.7fr] ">
           <div className="bg-[#262626] text-white h-full ">
             <div className="py-[35px] px-[28px]  text-left flex flex-col gap-y-[30px]">
-              <PreviewContact />
+              <PreviewContact
+                website={formPersonalData.website}
+                address={formPersonalData.address}
+                email={formPersonalData.email}
+                number={formPersonalData.number}
+              />
               <PreviewEducation />
-              <PreviewSkills/>
+              <PreviewSkills />
             </div>
           </div>
 
