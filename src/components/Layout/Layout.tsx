@@ -6,8 +6,9 @@ import PreviewCv from "../PreviewCv/PreviewCv";
 import EducationalData from "../EducationalData/EducationalData";
 import PersonalExperience from "../PersonalExperience/PersonalExperience";
 import { PersonalDataType } from "../PreviewCv/PreviewCv";
+import { WorkExperienceProps } from "../WorkExperience/WorkExperience";
 const Layout = () => {
-  const [formPersonalData, setFormPersonalData] = useState<PersonalDataType>({
+  const [formPersonalData, setFormPersonalData] = useState<Omit<PersonalDataType,'position'|'occupation'>>({
     firstName: "",
     lastName: "",
     address: "",
@@ -16,8 +17,23 @@ const Layout = () => {
     number: "",
     desc: "",
   });
+  const [formPersonalExperience, setFormPersonalExperience] = useState<
+    Omit<WorkExperienceProps, "onInputchange">
+  >({
+    company: "",
+    position: "",
+    occupation: "",
+    startDate: "",
+    endDate: "",
+  });
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormPersonalData((state) => ({
+      ...state,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  const onInputChangeWorkExperience = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormPersonalExperience((state) => ({
       ...state,
       [e.target.name]: e.target.value,
     }));
@@ -36,7 +52,14 @@ const Layout = () => {
           desc={formPersonalData.desc}
         />
         <EducationalData />
-        <PersonalExperience />
+        <PersonalExperience
+          onInputchange={onInputChangeWorkExperience}
+          company={formPersonalExperience.company}
+          position={formPersonalExperience.position}
+          occupation={formPersonalExperience.occupation}
+          startDate={formPersonalExperience.startDate}
+          endDate={formPersonalExperience.endDate}
+        />
       </div>
       <PreviewCv
         firstName={formPersonalData.firstName}
@@ -45,6 +68,8 @@ const Layout = () => {
         email={formPersonalData.email}
         number={formPersonalData.number}
         desc={formPersonalData.desc}
+        position = {formPersonalExperience.position}
+        occupation = {formPersonalExperience.occupation}
       />
     </div>
   );

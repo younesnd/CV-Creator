@@ -3,7 +3,9 @@ import styles from "./PersonalExperience.module.css";
 import React, { useState } from "react";
 import WorkExperience from "../WorkExperience/WorkExperience";
 import Skills from "../SkillsTechnologies/Skills";
-const PersonalExperience = () => {
+import { WorkExperienceProps } from "../WorkExperience/WorkExperience";
+
+const PersonalExperience = (props: WorkExperienceProps) => {
   const [expNum, setExpNum] = useState(1);
 
   const handleAdd = () => {
@@ -25,11 +27,17 @@ const PersonalExperience = () => {
       {Array.from(Array(expNum)).map((c, index) => {
         return (
           <div className="flex flex-col ">
-            <WorkExperience />
+            <WorkExperience
+              onInputchange={props.onInputchange}
+              company={props.company}
+              position={props.position}
+              occupation={props.occupation}
+              startDate={props.startDate}
+              endDate={props.endDate}
+            />
           </div>
         );
       })}
-      
 
       <Skills />
     </div>

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import PreviewHeader from "../PreviewHeader/PreviewHeader";
@@ -14,52 +14,26 @@ export type PersonalDataType = {
   email: string;
   number: string;
   desc: string;
+  position: string;
+  occupation : string
 };
 const PreviewCv = (Info: PersonalDataType) => {
   const printRef = useRef<HTMLDivElement>(null);
-  const handleDownloadPdf = async () => {
-    const element = printRef.current;
-    const canvas = await html2canvas(element as HTMLElement, { scale: 4 });
-    const data = canvas.toDataURL("image/png");
-
-    const pdf = new jsPDF("p", "mm", "a4", true);
-    const imgProperties = pdf.getImageProperties(data);
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
-
-    pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
-    pdf.save("print.pdf");
-  };
-  const [formPersonalData, setFormPersonalData] = useState<PersonalDataType>({
-    firstName: "",
-    lastName: "",
-    address: "",
-    website: "",
-    email: "",
-    number: "",
-    desc: "",
-  });
-  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormPersonalData((state) => ({
-      ...state,
-      [e.target.name]: e.target.value,
-    }));
-  };
   return (
     <div
       ref={printRef}
       className=" bg-white h-[800px] left-[614px] w-[615px] rounded-lg flex flex-col"
     >
       <div className="grid grid-rows-[auto,0.75fr]">
-        <PreviewHeader />
+        <PreviewHeader firstName={Info.firstName} position={Info.position} />
         <div className="grid grid-cols-[0.30fr,0.7fr] ">
           <div className="bg-[#262626] text-white h-full ">
             <div className="py-[35px] px-[28px]  text-left flex flex-col gap-y-[30px]">
               <PreviewContact
-                website={formPersonalData.website}
-                address={formPersonalData.address}
-                email={formPersonalData.email}
-                number={formPersonalData.number}
+                website={Info.website}
+                email={Info.email}
+                address={Info.address}
+                number={Info.number}
               />
               <PreviewEducation />
               <PreviewSkills />
@@ -84,42 +58,17 @@ const PreviewCv = (Info: PersonalDataType) => {
                 WORK EXPERIENCE
               </h3>
               <h4 className="text-left font-Work text-[12px] font-semibold tracking-[1.5px] ml-5">
-                Senior Software Enginner
+                {Info.position}
               </h4>
               <h5 className=" text-left text-[11px] font-Work font-normal text-[#2e2e2e] ml-5">
                 Dice | 2016 - Present
               </h5>
               <p className="text-[11px] font-Work font-normal text-[#2e2e2e] text-left ml-5 tracking-normal">
-                {" "}
-                provided technical leadership for complex projects. I used the
-                latest technologies such as Cloud Service, Visual Studio 2019
-                and Azure DevOps. I gained experience with data technologies
-                such as SQL Servers, NoSQL databases, full text search engines
-                and caching. My daily work consisted mostly of maintaining full
-                project life-cycle tasks including testing, debugging, technical
-                analysis, design and coding.
+                {Info.occupation}
+                
               </p>
             </div>
-            <div>
-              <h4 className="text-left font-Work text-[12px] font-semibold tracking-[1.5px] ml-5">
-                Senior Software Enginner
-              </h4>
-              <button
-                className=" text-left text-[11px] font-Work font-normal text-[#2e2e2e] ml-5"
-                onClick={handleDownloadPdf}
-              >
-                Dice | 2016 - Present
-              </button>
-              <p className="text-[11px] font-Work font-normal text-[#2e2e2e] text-left ml-5 tracking-normal">
-                provided technical leadership for complex projects. I used the
-                latest technologies such as Cloud Service, Visual Studio 2019
-                and Azure DevOps. I gained experience with data technologies
-                such as SQL Servers, NoSQL databases, full text search engines
-                and caching. My daily work consisted mostly of maintaining full
-                project life-cycle tasks including testing, debugging, technical
-                analysis, design and coding.
-              </p>
-            </div>
+            <div></div>
           </div>
         </div>
       </div>
