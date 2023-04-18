@@ -1,6 +1,10 @@
 import { useRef } from "react";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
+import PreviewHeader from "../PreviewHeader/PreviewHeader";
+import PreviewContact from "../PreviewContact/PreviewContact";
+import PreviewEducation from "../PreviewEducation/PreviewEducation";
+import PreviewSkills from "../PreviewSkills/PreviewSkills";
 
 export type PersonalDataType = {
   firstName: string;
@@ -32,103 +36,13 @@ const PreviewCv = (Info: PersonalDataType) => {
       className=" bg-white h-[800px] left-[614px] w-[615px] rounded-lg flex flex-col"
     >
       <div className="grid grid-rows-[auto,0.75fr]">
-        <div className="grid grid-rows-[0.8fr,auto]">
-          <h1 className="mb-2 p-8 tracking-[8px] text-center font-medium text-4xl uppercase">
-            {Info.firstName}
-          </h1>
-          <div className="bg-zinc-200 h-10  font-extralight">
-            Senior Software developer
-          </div>
-        </div>
+        <PreviewHeader />
         <div className="grid grid-cols-[0.30fr,0.7fr] ">
           <div className="bg-[#262626] text-white h-full ">
             <div className="py-[35px] px-[28px]  text-left flex flex-col gap-y-[30px]">
-              <div>
-                <h3 className="text-white font-Work text-[13px] font-normal tracking-[4px] mb-[20px]">
-                  Contact
-                </h3>
-                <div className="flex flex-col gap-[12px]">
-                  <div className="flex items-center space-x-1.5">
-                    <img
-                      src={require("../../assets/earth.png")}
-                      className="h-3 w-3 self-center mt-3"
-                      alt="trash"
-                    />
-                    <span id="Website" className="font-Inter text-[9px] text-white">
-                      {Info.website}
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-1.5">
-                    <img
-                      src={require("../../assets/env.png")}
-                      className="h-3 w-3 mt-3"
-                      alt="trash"
-                    />{" "}
-                    <span id="Email" className="font-Inter text-[9px] text-white">
-                      {Info.email}
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-1.5">
-                    <img
-                      src={require("../../assets/address.png")}
-                      className="h-3 w-3 mt-3 "
-                      alt="trash"
-                    />
-                    <span id="Address" className="font-Inter text-[9px] text-white">
-                      {Info.address}
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-1.5">
-                    <img
-                      src={require("../../assets/telep.png")}
-                      className="h-3 w-3 mt-3"
-                      alt="trash"
-                    />
-                    <span id="Number" className="font-Inter text-[9px] text-white">
-                      {Info.number}
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-white font-Work text-[13px] font-normal tracking-[3.5px] mb-[20px]">
-                  EDUCATION
-                </h3>
-                <div className="mb-[22px]">
-                  <h4 className="font-Work text-[12px] font-medium leading-[18px] mb-[2px] ">
-                    Master Of Science
-                  </h4>
-                  <h5 className="font-Work text-[11px] font-normal leading-[16.5px] text-[#a6a6a6]">
-                    University of Chicago
-                  </h5>
-                  <p className="font-Work text-[10px] font-normal leading-[15px] text-[#a6a6a6] ">
-                    2010 - 2014
-                  </p>
-                </div>
-                <div className="">
-                  <h4 className="font-Work text-[12px] font-medium leading-[18px] mb-[2px] ">
-                    Master Of Science
-                  </h4>
-                  <h5 className="font-Work text-[11px] font-normal leading-[16.5px] text-[#a6a6a6]">
-                    University of Chicago
-                  </h5>
-                  <p className="font-Work text-[10px] font-normal leading-[15px] text-[#a6a6a6] ">
-                    2010 - 2014
-                  </p>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-white font-Work text-[13px] font-normal tracking-[3.5px] mb-[20px]">
-                  SKILLS
-                </h3>
-                <div className="flex ">
-                  <img
-                    src={require("../../assets/flech.png")}
-                    className="h-3 w-3 "
-                    alt="trash"
-                  />
-                </div>
-              </div>
+              <PreviewContact />
+              <PreviewEducation />
+              <PreviewSkills/>
             </div>
           </div>
 
@@ -140,7 +54,7 @@ const PreviewCv = (Info: PersonalDataType) => {
               PROFILE
             </h3>
             <p className="font-Work text-[11px] p-2 tracking-normal leading-[16.5px] text-left ml-2 text-[#2e2e2e]">
-             {Info.desc}
+              {Info.desc}
             </p>
             <div className="mb-2">
               <h3
@@ -177,7 +91,6 @@ const PreviewCv = (Info: PersonalDataType) => {
                 Dice | 2016 - Present
               </button>
               <p className="text-[11px] font-Work font-normal text-[#2e2e2e] text-left ml-5 tracking-normal">
-                
                 provided technical leadership for complex projects. I used the
                 latest technologies such as Cloud Service, Visual Studio 2019
                 and Azure DevOps. I gained experience with data technologies
