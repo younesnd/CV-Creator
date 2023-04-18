@@ -1,6 +1,5 @@
 import { useRef } from "react";
-import html2canvas from "html2canvas";
-import { jsPDF } from "jspdf";
+import clsx from "clsx";
 import PreviewHeader from "../PreviewHeader/PreviewHeader";
 import PreviewContact from "../PreviewContact/PreviewContact";
 import PreviewEducation from "../PreviewEducation/PreviewEducation";
@@ -58,13 +57,23 @@ const PreviewCv = (Info: PreviewCvProps) => {
                 {Info.occupation}
               </p>
             </div>
-            <div id="experience_2" className="mb-2">
+            <div
+              id="experience_2"
+              className={clsx("mb-2", {
+                hidden:
+                  Info.company_2.length === 0 &&
+                  Info.position_2.length === 0 &&
+                  Info.occupation_2.length === 0 &&
+                  Info.startDate_2.length === 0 &&
+                  Info.endDate_2.length === 0,
+              })}
+            >
               <h4 className="text-left font-Work text-[12px] font-semibold tracking-[1.5px] ml-5">
                 {Info.position_2}
               </h4>
               <h5 className=" text-left text-[11px] font-Work font-normal text-[#2e2e2e] ml-5">
-                <span>{Info.company_2}</span> | <span>{Info.startDate_2}</span> -
-                <span>{Info.endDate_2}</span>
+                <span>{Info.company_2}</span> | <span>{Info.startDate_2}</span>{" "}
+                -<span>{Info.endDate_2}</span>
               </h5>
               <p className="text-[11px] font-Work font-normal text-[#2e2e2e] text-left ml-5 tracking-normal">
                 {Info.occupation_2}
