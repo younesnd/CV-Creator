@@ -16,6 +16,9 @@ export type PersonalDataType = {
   desc: string;
   position: string;
   occupation : string
+  company:string
+  startDate:string
+  endDate:string
 };
 const PreviewCv = (Info: PersonalDataType) => {
   const printRef = useRef<HTMLDivElement>(null);
@@ -61,7 +64,7 @@ const PreviewCv = (Info: PersonalDataType) => {
                 {Info.position}
               </h4>
               <h5 className=" text-left text-[11px] font-Work font-normal text-[#2e2e2e] ml-5">
-                Dice | 2016 - Present
+                <span>{Info.company}</span> | <span>{Info.startDate}</span> - <span>{Info.endDate}</span>
               </h5>
               <p className="text-[11px] font-Work font-normal text-[#2e2e2e] text-left ml-5 tracking-normal">
                 {Info.occupation}

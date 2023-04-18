@@ -8,7 +8,7 @@ import PersonalExperience from "../PersonalExperience/PersonalExperience";
 import { PersonalDataType } from "../PreviewCv/PreviewCv";
 import { WorkExperienceProps } from "../WorkExperience/WorkExperience";
 const Layout = () => {
-  const [formPersonalData, setFormPersonalData] = useState<Omit<PersonalDataType,'position'|'occupation'>>({
+  const [formPersonalData, setFormPersonalData] = useState<Omit<PersonalDataType,'position'|'occupation'|'company'|'startDate'|'endDate'>>({
     firstName: "",
     lastName: "",
     address: "",
@@ -70,6 +70,9 @@ const Layout = () => {
         desc={formPersonalData.desc}
         position = {formPersonalExperience.position}
         occupation = {formPersonalExperience.occupation}
+        company= {formPersonalExperience.company}
+        startDate = {formPersonalExperience.startDate}
+        endDate= {formPersonalExperience.endDate}
       />
     </div>
   );
