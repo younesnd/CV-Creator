@@ -2,9 +2,7 @@ import clsx from "clsx";
 import { useState } from "react";
 import { WorkExperienceProps } from "@/types/types";
 const WorkExperience = (props: WorkExperienceProps) => {
-  const { onInputchange, company, position, occupation, startDate, endDate } =
-    props;
-
+  
   const [numWkExp, setNumWkExp] = useState(1);
   const handleAdd = () => {
     setNumWkExp(numWkExp + 1);
@@ -51,8 +49,8 @@ const WorkExperience = (props: WorkExperienceProps) => {
             name="company"
             className="bg-zinc-900  text-white text-sm rounded-lg h-8 w-full p-2.5 "
             placeholder="Company"
-            value={company}
-            onChange={onInputchange}
+            value={props.company}
+            onChange={props.onInputchange}
           />
 
           <input
@@ -60,32 +58,32 @@ const WorkExperience = (props: WorkExperienceProps) => {
             name="position"
             className="bg-zinc-900 text-white  text-sm rounded-lg h-8 p-2"
             placeholder="Your Position"
-            value={position}
-            onChange={onInputchange}
+            value={props.position}
+            onChange={props.onInputchange}
           />
           <input
             type="text"
             name="occupation"
             className="bg-zinc-900  text-white text-sm rounded-lg h-20 p-2.5 placeholder:text-start  "
             placeholder="Your Main Occupation"
-            value={occupation}
-            onChange={onInputchange}
+            value={props.occupation}
+            onChange={props.onInputchange}
           />
           <input
             type="text"
             name="startDate"
             className="bg-zinc-900 text-white  text-sm rounded-lg h-8 p-2"
             placeholder="Start Date"
-            value={startDate}
-            onChange={onInputchange}
+            value={props.startDate}
+            onChange={props.onInputchange}
           />
           <input
             type="text"
             name="endDate"
             className="bg-zinc-900 text-white  text-sm rounded-lg h-8 p-2"
             placeholder="End Date"
-            value={endDate}
-            onChange={onInputchange}
+            value={props.endDate}
+            onChange={props.onInputchange}
           />
         </div>
       </div>
@@ -121,8 +119,8 @@ const WorkExperience = (props: WorkExperienceProps) => {
             name="company_2"
             className="bg-zinc-900  text-white text-sm rounded-lg h-8 w-full p-2.5 "
             placeholder="Company"
-            value={company}
-            onChange={onInputchange}
+            value={props.company_2}
+            onChange={props.onInputchange}
           />
 
           <input
@@ -130,32 +128,32 @@ const WorkExperience = (props: WorkExperienceProps) => {
             name="position_2"
             className="bg-zinc-900 text-white  text-sm rounded-lg h-8 p-2"
             placeholder="Your Position"
-            value={position}
-            onChange={onInputchange}
+            value={props.position_2}
+            onChange={props.onInputchange}
           />
           <input
             type="text"
             name="occupation_2"
             className="bg-zinc-900  text-white text-sm rounded-lg h-20 p-2.5 placeholder:text-start  "
             placeholder="Your Main Occupation"
-            value={occupation}
-            onChange={onInputchange}
+            value={props.occupation_2}
+            onChange={props.onInputchange}
           />
           <input
             type="text"
             name="startDate_2"
             className="bg-zinc-900 text-white  text-sm rounded-lg h-8 p-2"
             placeholder="Start Date"
-            value={startDate}
-            onChange={onInputchange}
+            value={props.startDate_2}
+            onChange={props.onInputchange}
           />
           <input
             type="text"
             name="endDate_2"
             className="bg-zinc-900 text-white  text-sm rounded-lg h-8 p-2"
             placeholder="End Date"
-            value={endDate}
-            onChange={onInputchange}
+            value={props.endDate_2}
+            onChange={props.onInputchange}
           />
         </div>
       </div>
@@ -190,8 +188,8 @@ const WorkExperience = (props: WorkExperienceProps) => {
             name="company"
             className="bg-zinc-900  text-white text-sm rounded-lg h-8 w-full p-2.5 "
             placeholder="Company"
-            value={company}
-            onChange={onInputchange}
+            value={props.company_2}
+            onChange={props.onInputchange}
           />
 
           <input
@@ -199,32 +197,32 @@ const WorkExperience = (props: WorkExperienceProps) => {
             name="position"
             className="bg-zinc-900 text-white  text-sm rounded-lg h-8 p-2"
             placeholder="Your Position"
-            value={position}
-            onChange={onInputchange}
+            value={props.position_2}
+            onChange={props.onInputchange}
           />
           <input
             type="text"
             name="occupation"
             className="bg-zinc-900  text-white text-sm rounded-lg h-20 p-2.5 placeholder:text-start  "
             placeholder="Your Main Occupation"
-            value={occupation}
-            onChange={onInputchange}
+            value={props.occupation_2}
+            onChange={props.onInputchange}
           />
           <input
             type="text"
             name="startDate"
             className="bg-zinc-900 text-white  text-sm rounded-lg h-8 p-2"
             placeholder="Start Date"
-            value={startDate}
-            onChange={onInputchange}
+            value={props.startDate_2}
+            onChange={props.onInputchange}
           />
           <input
             type="text"
             name="endDate"
             className="bg-zinc-900 text-white  text-sm rounded-lg h-8 p-2"
             placeholder="End Date"
-            value={endDate}
-            onChange={onInputchange}
+            value={props.endDate_2}
+            onChange={props.onInputchange}
           />
         </div>
       </div>
