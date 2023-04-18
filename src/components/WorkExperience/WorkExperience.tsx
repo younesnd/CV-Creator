@@ -111,11 +111,7 @@ const WorkExperience = (props: WorkExperienceProps) => {
               </h2>
             </div>
             <button
-              className={clsx({
-                "bg-zinc-900  text-white text-xs h-9 w-9 rounded-lg p-2":
-                  numWkExp > 1,
-                hidden: numWkExp === 1,
-              })}
+              className="bg-zinc-900  text-white text-xs h-9 w-9 rounded-lg p-2"
               onClick={handleRemove}
             >
               <img
@@ -170,7 +166,7 @@ const WorkExperience = (props: WorkExperienceProps) => {
           />
         </div>
       </div>
-      <div className={clsx({ hidden: numWkExp === 1 || 2 })}>
+      <div className={clsx({ hidden: numWkExp !== 3 })}>
         <div className="flex flex-col space-y-2 px-4">
           <div className="flex  items-center justify-between">
             <div className="flex align-middle items-center">
@@ -184,11 +180,7 @@ const WorkExperience = (props: WorkExperienceProps) => {
               </h2>
             </div>
             <button
-              className={clsx({
-                "bg-zinc-900  text-white text-xs h-9 w-9 rounded-lg p-2":
-                  numWkExp > 1,
-                hidden: numWkExp === 1 || 2,
-              })}
+              className="bg-zinc-900  text-white text-xs h-9 w-9 rounded-lg p-2"
               onClick={handleRemove}
             >
               <img

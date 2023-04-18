@@ -15,10 +15,10 @@ export type PersonalDataType = {
   number: string;
   desc: string;
   position: string;
-  occupation : string
-  company:string
-  startDate:string
-  endDate:string
+  occupation: string;
+  company: string;
+  startDate: string;
+  endDate: string;
 };
 const PreviewCv = (Info: PersonalDataType) => {
   const printRef = useRef<HTMLDivElement>(null);
@@ -64,11 +64,23 @@ const PreviewCv = (Info: PersonalDataType) => {
                 {Info.position}
               </h4>
               <h5 className=" text-left text-[11px] font-Work font-normal text-[#2e2e2e] ml-5">
-                <span>{Info.company}</span> | <span>{Info.startDate}</span> - <span>{Info.endDate}</span>
+                <span>{Info.company}</span> | <span>{Info.startDate}</span> -{" "}
+                <span>{Info.endDate}</span>
               </h5>
               <p className="text-[11px] font-Work font-normal text-[#2e2e2e] text-left ml-5 tracking-normal">
                 {Info.occupation}
-                
+              </p>
+            </div>
+            <div id="experience_2" className="mb-2">
+              <h4 className="text-left font-Work text-[12px] font-semibold tracking-[1.5px] ml-5">
+                {Info.position}
+              </h4>
+              <h5 className=" text-left text-[11px] font-Work font-normal text-[#2e2e2e] ml-5">
+                <span>{Info.company}</span> | <span>{Info.startDate}</span> -{" "}
+                <span>{Info.endDate}</span>
+              </h5>
+              <p className="text-[11px] font-Work font-normal text-[#2e2e2e] text-left ml-5 tracking-normal">
+                {Info.occupation}
               </p>
             </div>
             <div></div>
