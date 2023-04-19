@@ -15,8 +15,8 @@ const PreviewCv = (Info: PreviewCvProps) => {
     >
       <div className="grid grid-rows-[auto,0.75fr]">
         <PreviewHeader firstName={Info.firstName} position={Info.position} />
-        <div className="grid grid-cols-[0.30fr,0.7fr] ">
-          <div className="bg-[#262626] text-white h-full ">
+        <div className="grid grid-cols-[0.3fr,0.7fr] ">
+          <div className="bg-[#262626] text-white min-h-screen rounded-b-lg ">
             <div className="py-[35px] px-[28px]  text-left flex flex-col gap-y-[30px]">
               <PreviewContact
                 website={Info.website}
