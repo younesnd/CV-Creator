@@ -76,7 +76,7 @@ const PersonalData = (props: PersonalDataProps) => {
       <input
         type="text"
         name="desc"
-        className="bg-zinc-900 text-white text-sm rounded-lg mx-2 p-2.5 mb-5 h-40"
+        className="bg-zinc-900 text-white text-sm rounded-lg mx-2 p-2.5 mb-5 h-40 break-words "
         placeholder="Tell us something about you"
         required
         value={desc}
