@@ -8,6 +8,7 @@ export type PersonalDataType = {
   desc: string;
 };
 export type PreviewCvProps = {
+  
   firstName: string;
   lastName?: string;
   address: string;

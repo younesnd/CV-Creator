@@ -1,10 +1,13 @@
-import { useRef } from "react";
+import { RefObject, useRef } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-const CreateCv = () => {
-  const printRef = useRef<HTMLDivElement>(null);
+
+type CreateCvProps = {
+  printref : RefObject<HTMLDivElement>
+}
+const CreateCv = (props:CreateCvProps) => {
   const handleDownloadPdf = async () => {
-    const element = printRef.current;
+    const element = props.printref.current;
     const canvas = await html2canvas(element as HTMLElement, { scale: 4 });
     const data = canvas.toDataURL("image/png");
 
@@ -21,10 +24,10 @@ const CreateCv = () => {
     <div className="container flex h-32 bg-[#262626] font-semibold w-[90%]  text-white rounded-lg justify-between">
       <div className="self-start p-3 font-Osland text-3xl flex  space-x-14   ">
         <span className="">Create Your CV</span>
-        <div className="flex space-x-2">
+        <div className="flex space-x-3">
           <button
             type="button"
-            className=" text-white shadow-2xl text-base flex bg-teal-700 w-24 h-10  font-medium rounded-lg px-4 py-2 items-center "
+            className=" text-white shadow-2xl text-base flex bg-cyan-700 w-24 h-10 space-x-1  font-medium rounded-lg px-4 py-2 items-center "
             onClick={handleDownloadPdf}
           >
             {" "}
@@ -33,13 +36,13 @@ const CreateCv = () => {
               className="h-6 w-6"
               alt="imgschool"
             />
-            <span>Save</span>
+            <span> Save </span>
           </button>
           <button
             type="button"
-            className=" text-white shadow-2xl flex  bg-teal-700 text-base w-24 h-10 font-medium rounded-lg text-ms px-4 py-2 "
+            className=" text-white shadow-2xl flex  bg-cyan-700 text-base w-24 h-10 font-medium rounded-lg text-ms p-2"
           >
-            <span>AutoFill</span>
+            <span className=" ml-4">AutoFill</span>
           </button>
         </div>
       </div>
