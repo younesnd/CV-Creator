@@ -11,12 +11,12 @@ const PreviewCv = (Info: PreviewCvProps) => {
   return (
     <div
       ref={printRef}
-      className=" bg-white h-[800px] left-[614px] w-[615px] rounded-lg flex flex-col"
+      className=" bg-white  left-[614px] w-[615px] rounded-lg flex flex-col"
     >
       <div className="grid grid-rows-[auto,0.75fr]">
         <PreviewHeader firstName={Info.firstName} position={Info.position} />
         <div className="grid grid-cols-[0.3fr,0.7fr] ">
-          <div className="bg-[#262626] text-white min-h-screen rounded-b-lg ">
+          <div className="bg-[#262626] text-white  h-screen rounded-b-lg ">
             <div className="py-[35px] px-[28px]  text-left flex flex-col gap-y-[30px]">
               <PreviewContact
                 website={Info.website}

@@ -59,7 +59,7 @@ const EducationalData = (props:PreviewEducationalProps) => {
             className="bg-zinc-900  text-white text-sm rounded-lg h-8 w-full p-2.5 "
             placeholder="Your School"
             required
-            value={props.degree}
+            value={props.school}
             onChange={props.onInputchange}
           />
 
